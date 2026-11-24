@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dev Dashboard | By @Ahmed.Dev</title>
+
+
+    <!-- Css Link -->
+    <link rel="stylesheet" href="./css/style.css" />
+
+    <!-- Box Icons -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <!-- Google Font (Inter Font) -->
+    <link
+        href="https://fonts.googleapis.com/css?family=Inter:100,200,300,regular,500,600,700,800,900,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic"
+        rel="stylesheet" />
+</head>
+
+<body>
+    <div class="app-container">
+
+        <!-- خلفية ضبابية عند فتح القائمة في الجوال -->
+        <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+        <!-- الشريط العلوي للجوال والتابلت (مخفي في الكمبيوتر) -->
+        <header class="mobile-header">
+            <div class="logo">
+                <i class='bx bx-code-alt'></i>
+                <span>Ahmed<span>.Dev</span></span>
+            </div>
+            <div class="mobile-header-actions">
+                <button id="mobile-theme-toggle" class="icon-btn" title="Toggle Theme">
+                    <i class='bx bx-sun' id="mobile-theme-icon"></i>
+                </button>
+                <button id="menu-btn" class="icon-btn" title="Open Menu">
+                    <i class='bx bx-menu'></i>
+                </button>
+            </div>
+        </header>
+
+        <!-- ========== SIDEBAR ========== -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <i class='bx bx-code-alt'></i>
+                    <span>Ahmed<span>.Dev</span></span>
+                </div>
+                <div style="display: flex; gap: 8px;">
+                    <button id="theme-toggle" class="icon-btn" title="Toggle Dark/Light Mode">
+                        <i class='bx bx-sun' id="theme-icon"></i>
+                    </button>
+                    <button id="close-sidebar-btn" class="icon-btn mobile-only-btn" title="Close Menu">
+                        <i class='bx bx-x'></i>
+                    </button>
+                </div>
+            </div>
+
+
+            <!-- روابط الأقسام الأربعة -->
+            <nav class="nav-links">
+                <button class="nav-item active" data-target="profile">
+                    <i class='bx bx-user'></i>
+                    <span>Profile</span>
+                </button>
+                <button class="nav-item" data-target="projects">
+                    <i class='bx bx-folder'></i>
+                    <span>Projects</span>
+                </button>
+                <button class="nav-item" data-target="todo">
+                    <i class='bx bx-check-square'></i>
+                    <span>To-Do List</span>
+                </button>
+                <button class="nav-item" data-target="ramadan">
+                    <i class='bx bx-moon'></i>
+                    <span>Ramadan</span>
+                </button>
+            </nav>
+
+            <!-- قسم الـ 20 لون -->
+            <div class="accent-picker">
+                <p class="picker-title">Accent Colors (20)</p>
+                <div class="colors-grid" id="colors-grid">
+                    <!-- الجافا سكريبت بيولد الـ 20 لون هنا تلقائياً -->
+                </div>
+            </div>
+        </aside>
+
+        <!-- ========== MAIN CONTENT ========== -->
+        <main class="main-content">
+            <!-- ========== PROFILE SECTION ========== -->
+            <section id="profile" class="page-section active">
+                <h1 class="section-title">My Profile</h1>
+
+                <!-- الجزء الأول: مقسوم لقسمين (بطاقة البروفايل + فورم التعديل) -->
+                <div class="profile-grid">
+
+                    <!-- القسم 1: بطاقة البروفايل -->
+                    <div class="card profile-card">
+                        <div class="avatar-wrapper">
+                            <img id="display-avatar" src="./Images/images.jpeg" alt="Ahmed Avatar">
+                        </div>
+                        <h2 id="display-name">Ahmed Almaghrabi</h2>
+                        <span class="role-badge" id="display-role">Front-End Developer</span>
+
+                        <div class="profile-meta">
+                            <div class="meta-item">
+                                <i class='bx bx-cake'></i>
+                                <span id="display-age">20 Years Old</span>
+                            </div>
+                            <div class="meta-item">
+                                <i class='bx bx-flag'></i>
+                                <span id="display-nationality">Saudi Arabian</span>
+                            </div>
+                            <div class="meta-item">
+                                <i class='bx bx-map'></i>
+                                <span id="display-city">Jeddah, KSA</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- القسم 2: الـ 6 Inputs لتعديل البيانات -->
+                    <div class="card edit-card">
+                        <h3>Edit Personal Info</h3>
+                        <form id="profile-form" class="inputs-grid">
+                            <div class="input-group">
+                                <label>Full Name</label>
+                                <input type="text" id="input-name" value="Ahmed Almaghrabi"
+                                    placeholder="Enter your name">
+                            </div>
+
+                            <div class="input-group">
+                                <label>Job Title</label>
+                                <input type="text" id="input-role" value="Front-End Developer"
+                                    placeholder="e.g. Front-End Developer">
+                            </div>
+
+                            <div class="input-group">
+                                <label>Age</label>
+                                <input type="text" id="input-age" value="20 Years Old" placeholder="Enter your age">
+                            </div>
+
+                            <div class="input-group">
+                                <label>Nationality</label>
+                                <input type="text" id="input-nationality" value="Saudi Arabian"
+                                    placeholder="Enter nationality">
+                            </div>
+
+                            <div class="input-group">
+                                <label>City</label>
+                                <input type="text" id="input-city" value="Jeddah, KSA" placeholder="Enter city">
+                            </div>
+
+                            <div class="input-group">
+                                <label>Avatar Image URL</label>
+                                <input type="text" id="input-avatar" value="https://dicebear.com"
+                                    placeholder="Paste image URL">
+                            </div>
+
+                            <button type="submit" class="btn-primary full-width">
+                                <i class='bx bx-save'></i> Save Changes
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- الجزء الثاني: قسم المهارات (بمسافة 20px من الأعلى) -->
+                <div class="card skills-section">
+                    <div class="skills-header">
+                        <h3>My Skills</h3>
+                        <div class="add-skill-box">
+                            <input type="text" id="new-skill-input" placeholder="Add new skill (e.g. TypeScript)...">
+                            <button type="button" id="add-skill-btn" class="btn-primary">
+                                <i class='bx bx-plus'></i> Add
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="skills-list" id="skills-list">
+                        <!-- المهارات تتولد هنا بالجافا سكريبت -->
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- ========== PROJECTS SECTION ========== -->
+            <section id="projects" class="page-section">
+                <div class="section-header-flex">
+                    <h1 class="section-title" style="margin-bottom: 0;">My Projects</h1>
+                    <div class="projects-stats">
+                        <span class="stat-pill">Total: <strong id="total-projects">0</strong></span>
+                        <span class="stat-pill">Completed: <strong id="completed-projects">0</strong></span>
+                        <span class="stat-pill">In Progress: <strong id="progress-projects">0</strong></span>
+                    </div>
+                </div>
+
+                <!-- فورم إضافة مشروع جديد -->
+                <div class="card" style="margin-bottom: 20px;">
+                    <h3 style="margin-bottom: 16px; font-size: 1.05rem;">Add New Project</h3>
+                    <form id="project-form" class="project-form-grid">
+                        <input type="text" id="proj-title" placeholder="Project Name (e.g. Women's Fashion Store)"
+                            required>
+                        <input type="text" id="proj-client" placeholder="Client Name (e.g. Sara Store)" required>
+                        <input type="text" id="proj-tech" placeholder="Tech Stack (e.g. React, Node.js)" required>
+                        <select id="proj-status">
+                            <option value="In Progress">In Progress</option>
+                            <option value="Completed">Completed</option>
+                        </select>
+                        <button type="submit" class="btn-primary">
+                            <i class='bx bx-plus'></i> Add Project
+                        </button>
+                    </form>
+                </div>
+
+                <!-- شبكة عرض المشاريع -->
+                <div class="projects-grid" id="projects-grid">
+                    <!-- البطاقات تتولد هنا بالجافا سكريبت -->
+                </div>
+            </section>
+
+
+            <section id="todo" class="page-section">
+                <div class="section-header-flex">
+                    <h1 class="section-title" style="margin-bottom: 0;">Daily To-Do List</h1>
+                    <div class="projects-stats">
+                        <span class="stat-pill">Progress: <strong id="todo-percent">0%</strong></span>
+                        <button type="button" id="open-todo-modal" class="btn-primary">
+                            <i class='bx bx-plus'></i> Add Task
+                        </button>
+                    </div>
+                </div>
+
+                <div class="progress-bar-bg">
+                    <div class="progress-bar-fill" id="todo-progress-bar"></div>
+                </div>
+
+                <div class="todo-filters" style="margin-bottom: 20px;">
+                    <button type="button" class="filter-btn active" data-filter="all">All</button>
+                    <button type="button" class="filter-btn" data-filter="pending">Pending</button>
+                    <button type="button" class="filter-btn" data-filter="completed">Completed</button>
+                </div>
+
+                <div class="todo-list" id="todo-list"></div>
+
+                <div class="modal-overlay" id="todo-modal">
+                    <div class="modal-box">
+                        <div class="modal-header">
+                            <h3>Add New Task</h3>
+                            <button type="button" id="close-todo-modal" class="icon-btn">
+                                <i class='bx bx-x'></i>
+                            </button>
+                        </div>
+
+                        <form id="todo-form" class="modal-form">
+                            <div class="input-group">
+                                <label>Description</label>
+                                <input type="text" id="todo-desc" placeholder="Task description..." required>
+                            </div>
+
+                            <div class="modal-row">
+                                <div class="input-group">
+                                    <label>Date</label>
+                                    <input type="date" id="todo-date" required>
+                                </div>
+
+                                <div class="input-group">
+                                    <label>Time</label>
+                                    <input type="time" id="todo-time" required>
+                                </div>
+                            </div>
+
+                            <div class="modal-actions">
+                                <button type="button" id="cancel-todo-modal" class="btn-outline">Cancel</button>
+                                <button type="submit" class="btn-primary">Save Task</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </section>
+
+
+
+
+            <section id="ramadan" class="page-section">
+                <div class="section-header-flex">
+                    <h1 class="section-title" style="margin-bottom: 0;">Ramadan & Worship 🌙</h1>
+                    <button type="button" id="reset-prayers-btn" class="btn-outline">
+                        <i class='bx bx-refresh'></i> Reset Prayers
+                    </button>
+                </div>
+
+                <!-- 1. التاريخ والعداد وملخص اليوم -->
+                <div class="card ramadan-top-card">
+                    <div class="date-summary">
+                        <span class="role-badge" id="today-date-display">Loading...</span>
+                        <h3 style="margin-top: 10px;">Daily Summary</h3>
+                        <p class="summary-text">
+                            Prayers Done: <strong id="summary-prayers">0/5</strong> •
+                            Today's Tasbih: <strong id="summary-tasbih">0</strong>
+                        </p>
+                    </div>
+
+                    <div class="countdown-box">
+                        <p class="countdown-label">Countdown to Ramadan 1448H</p>
+                        <div class="countdown-timer">
+                            <div class="time-unit"><span id="cd-days">00</span><small>Days</small></div>
+                            <div class="time-unit"><span id="cd-hours">00</span><small>Hours</small></div>
+                            <div class="time-unit"><span id="cd-mins">00</span><small>Mins</small></div>
+                            <div class="time-unit"><span id="cd-secs">00</span><small>Secs</small></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2 & 3. الصلوات الخمس + التسبيح -->
+                <div class="ramadan-grid">
+                    <div class="card">
+                        <div class="card-top-row">
+                            <h3>Five Daily Prayers</h3>
+                            <span class="stat-pill"><strong id="prayers-count">0</strong> / 5</span>
+                        </div>
+                        <div class="prayers-list" id="prayers-list"></div>
+                    </div>
+
+                    <div class="card tasbih-card">
+                        <div class="card-top-row" style="width: 100%;">
+                            <h3>Tasbih Counter</h3>
+                            <button type="button" id="reset-tasbih-btn" class="btn-outline">Reset</button>
+                        </div>
+
+                        <!-- القائمة المودرن للأذكار -->
+                        <div class="custom-dropdown" id="dhikr-dropdown">
+                            <button type="button" class="dropdown-trigger" id="dropdown-trigger">
+                                <span id="selected-dhikr">سُبْحَانَ اللَّهِ</span>
+                                <i class='bx bx-chevron-down'></i>
+                            </button>
+                            <ul class="dropdown-menu" id="dropdown-menu">
+                                <li class="dropdown-option active" data-value="سُبْحَانَ اللَّهِ">سُبْحَانَ اللَّهِ</li>
+                                <li class="dropdown-option" data-value="الْحَمْدُ لِلَّهِ">الْحَمْدُ لِلَّهِ</li>
+                                <li class="dropdown-option" data-value="اللَّهُ أَكْبَرُ">اللَّهُ أَكْبَرُ</li>
+                                <li class="dropdown-option" data-value="أَسْتَغْفِرُ اللَّهَ">أَسْتَغْفِرُ اللَّهَ</li>
+                                <li class="dropdown-option" data-value="اللَّهُمَّ صَلِّ عَلَى مُحَمَّدٍ">اللَّهُمَّ
+                                    صَلِّ عَلَى مُحَمَّدٍ</li>
+                            </ul>
+                        </div>
+
+                        <div class="tasbih-display">
+                            <p id="current-dhikr-text">سُبْحَانَ اللَّهِ</p>
+                            <h2 id="tasbih-counter">0</h2>
+                        </div>
+
+                        <button type="button" id="tasbih-btn" class="tasbih-circle-btn">
+                            <i class='bx bx-fingerprint'></i>
+                            <span>Tap</span>
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+
+        </main>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- JavaScript Link -->
+    <script src="js/main.js"></script>
+
+
+
+</body>
+
+</html>
